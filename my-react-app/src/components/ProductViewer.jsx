@@ -1,6 +1,8 @@
 import React from "react";
 import { useMacStore } from "../store";
 import clsx from "clsx";
+import { Canvas } from "@react-three/fiber";
+
 export const ProductViewer = () => {
   const { color, scale, setColor, setScale } = useMacStore();
   return (
@@ -53,6 +55,7 @@ export const ProductViewer = () => {
         </div>
       </div>
 
+      <Canvas>{/* 3D Model will be rendered here */}</Canvas>
       <p className="text-white text-4xl"> Render Canvas</p>
     </section>
   );

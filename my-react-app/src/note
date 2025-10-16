@@ -1,0 +1,32 @@
+to be able to start a react app with vite
+-install create-vite
+-npx create-vite@latest {project-name} --template react
+-npm run dev
+
+to be able to use tailwindcss
+-install tailwindcss postcss autoprefixer
+-npx tailwindcss init -p
+-add the content path in tailwind.config.cjs
+-add the tailwind directives in index.css
+-@tailwind base;
+-@tailwind components;
+-@tailwind utilities;
+
+
+
+to be able to use 3D model need to install packages
+-install three @react-three/drei @react-three/fiber
+-import { Canvas } from "@react-three/fiber";
+
+to be able to use zustand for state management
+-install zustand
+-import create from "zustand";
+
+to be able to use clxsx for conditional class names
+-install clsx
+-import clsx from "clsx";
+
+
+to be able to use framer-motion for animation
+-install framer-motion
+-import { motion } from "framer-motion";
