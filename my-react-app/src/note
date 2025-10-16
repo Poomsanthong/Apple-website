@@ -12,11 +12,13 @@ to be able to use tailwindcss
 -@tailwind components;
 -@tailwind utilities;
 
-
-
 to be able to use 3D model need to install packages
 -install three @react-three/drei @react-three/fiber
 -import { Canvas } from "@react-three/fiber";
+-import { Box } from "@react-three/drei";
+and convert the .glb via gltfjsx command
+npx gltfjsx macbook-14.glb -T
+-spotlights an studiolights is applied for better lightings for the models
 
 to be able to use zustand for state management
 -install zustand
@@ -25,7 +27,6 @@ to be able to use zustand for state management
 to be able to use clxsx for conditional class names
 -install clsx
 -import clsx from "clsx";
-
 
 to be able to use framer-motion for animation
 -install framer-motion
