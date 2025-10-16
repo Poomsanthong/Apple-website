@@ -1,23 +1,53 @@
 import React from "react";
-
+import { useMacStore } from "../store";
+import clsx from "clsx";
 export const ProductViewer = () => {
+  const { color, scale, setColor, setScale } = useMacStore();
   return (
     <section id="product-viewer">
       <h2>Take a closer look.</h2>
 
       <div className="controls">
-        <p className="info">MacBook Pro 16-inch in Space black</p>
+        <p className="info">
+          MacBook Pro {scale} in {color}
+        </p>
         <div className="flex-center gap-5 mt-5">
           <div className="color-control">
-            <div className="bg-neutral-300"></div>
-            <div className="bg-neutral-900"></div>
+            <div
+              className={clsx(
+                "bg-neutral-300",
+                color === "#adb5db" && "active"
+              )}
+              onClick={() => setColor("#adb5db")}
+            ></div>
+            <div
+              className={clsx(
+                "bg-neutral-900",
+                color === "#2e2c2e" && "active"
+              )}
+              onClick={() => setColor("#2e2c2e")}
+            ></div>
           </div>
           <div className="size-control">
-            <div>
-              <p>16"</p>
-            </div>
-            <div>
+            <div
+              className={clsx(
+                scale === 0.06
+                  ? "bg-white text-black"
+                  : "bg-transparent text-white"
+              )}
+              onClick={() => setScale(0.06)}
+            >
               <p>14"</p>
+            </div>
+            <div
+              className={clsx(
+                scale === 0.08
+                  ? "bg-white text-black"
+                  : "bg-transparent text-white"
+              )}
+              onClick={() => setScale(0.08)}
+            >
+              <p>16"</p>
             </div>
           </div>
         </div>

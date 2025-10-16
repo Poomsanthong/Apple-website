@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useMacStore = create((set) => ({
+export const useMacStore = create((set) => ({
   // Define your state and actions here
 
   color: "#2e2e2e",
