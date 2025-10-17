@@ -66,13 +66,10 @@ export const ProductViewer = () => {
         camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }} // camera settings
       >
         <StudioLights /> {/* lighting setup */}
-        <MacBookModel14 scale={scale} position={[0, 0, 0]} />{" "}
-        {/* MacBook model */}
         <ModelSwitcher
           scale={isMobile ? scale - 0.03 : scale}
           isMobile={isMobile}
-        />{" "}
-        {/* Model switcher component */}
+        />
       </Canvas>
     </section>
   );
