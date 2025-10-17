@@ -31,10 +31,14 @@ const moveGroup = (group, x) => {
 };
 
 const ModelSwitcher = ({ scale, isMobile }) => {
-  const smallMacbookRef = useRef(); // refs for the two models 14 inch
-  const largeMacbookRef = useRef(); // refs for the two models 16 inch
+  const SCALE_LARGE_DESKTOP = 0.08;
+  const SCALE_LARGE_MOBILE = 0.05;
 
-  const showLargeMacbook = scale === 0.08 || scale === 0.05; // 16-inch scales
+  const smallMacbookRef = useRef();
+  const largeMacbookRef = useRef();
+
+  const showLargeMacbook =
+    scale === SCALE_LARGE_DESKTOP || scale === SCALE_LARGE_MOBILE;
 
   useGSAP(() => {
     // GSAP animation effect on scale change
