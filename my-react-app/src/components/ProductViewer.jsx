@@ -1,12 +1,16 @@
-import React from "react";
-import { useMacStore } from "../store";
-import clsx from "clsx";
-import { Canvas } from "@react-three/fiber";
-import { Box, OrbitControls } from "@react-three/drei";
-import { Model as MacBookModel14 } from "./models/Macbook";
-import StudioLights from "./models/StudioLights";
+import React from "react"; // React library
+import { useMacStore } from "../store"; // zustand store for state management
+import clsx from "clsx"; // conditional class names
+import { Canvas } from "@react-three/fiber"; // react-three-fiber for 3D rendering
+import { useMediaQuery } from "react-responsive"; // media query for responsiveness
+import { Box, OrbitControls } from "@react-three/drei"; // useful helpers for react-three-fiber
+import { Model as MacBookModel14, Model } from "./models/Macbook"; // MacBook 3D model
+import StudioLights from "./three/StudioLights"; // lighting setup for 3D scene
+import ModelSwitcher from "./three/ModelSwitcher"; // component to switch between models
+
 export const ProductViewer = () => {
-  const { color, scale, setColor, setScale } = useMacStore();
+  const { color, scale, setColor, setScale } = useMacStore(); // zustand store for state management
+  const isMobile = useMediaQuery({ query: "(max-width: 1024px)" }); // mobile or tablet check
   return (
     <section id="product-viewer">
       <h2>Take a closer look.</h2>
@@ -59,12 +63,16 @@ export const ProductViewer = () => {
 
       <Canvas
         id="canvas"
-        camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
+        camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }} // camera settings
       >
-        <StudioLights />
-        <MacBookModel14 scale={scale} position={[0, 0, 0]} />
-
-        <OrbitControls enableZoom={false} />
+        <StudioLights /> {/* lighting setup */}
+        <MacBookModel14 scale={scale} position={[0, 0, 0]} />{" "}
+        {/* MacBook model */}
+        <ModelSwitcher
+          scale={isMobile ? scale - 0.03 : scale}
+          isMobile={isMobile}
+        />{" "}
+        {/* Model switcher component */}
       </Canvas>
     </section>
   );
