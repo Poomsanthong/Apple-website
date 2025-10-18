@@ -1,31 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
-export const Hero = () => {
-  const videoRef = useRef(null);
+const Hero = () => {
+  const videoRef = useRef();
 
-  // Set playback rate to 2x when the component opens
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 2.0;
-    }
+    if (videoRef.current) videoRef.current.playbackRate = 2;
   }, []);
+
   return (
     <section id="hero">
       <div>
         <h1>MacBook Pro</h1>
-        <img src="/title.png" alt="MacBook Pro title" />
+        <img src="/title.png" alt="MacBook Title" />
       </div>
 
-      <video
-        ref={videoRef}
-        src="/videos/hero.mp4"
-        autoPlay
-        muted
-        playsInline
-      ></video>
+      <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline />
 
       <button>Buy</button>
-      <p>From $1999 or $83.29/mo. for 24 months</p>
+
+      <p>From $1599 or $133/mo for 12 months</p>
     </section>
   );
 };
+export default Hero;

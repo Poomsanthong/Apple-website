@@ -8,7 +8,7 @@ import { Model as MacBookModel14, Model } from "./models/Macbook"; // MacBook 3D
 import StudioLights from "./three/StudioLights"; // lighting setup for 3D scene
 import ModelSwitcher from "./three/ModelSwitcher"; // component to switch between models
 
-export const ProductViewer = () => {
+const ProductViewer = () => {
   const { color, scale, setColor, setScale } = useMacStore(); // zustand store for state management
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" }); // mobile or tablet check
   return (
@@ -71,3 +71,5 @@ export const ProductViewer = () => {
     </section>
   );
 };
+
+export default ProductViewer;
