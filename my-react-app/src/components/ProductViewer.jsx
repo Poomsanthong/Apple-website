@@ -3,8 +3,6 @@ import { useMacStore } from "../store"; // zustand store for state management
 import clsx from "clsx"; // conditional class names
 import { Canvas } from "@react-three/fiber"; // react-three-fiber for 3D rendering
 import { useMediaQuery } from "react-responsive"; // media query for responsiveness
-import { Box, OrbitControls } from "@react-three/drei"; // useful helpers for react-three-fiber
-import { Model as MacBookModel14, Model } from "./models/Macbook"; // MacBook 3D model
 import StudioLights from "./three/StudioLights"; // lighting setup for 3D scene
 import ModelSwitcher from "./three/ModelSwitcher"; // component to switch between models
 
